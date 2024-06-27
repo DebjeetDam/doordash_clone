@@ -16,6 +16,7 @@ import {
   MagnifyingGlassIcon,
 } from "react-native-heroicons/outline";
 import Categories from "./components/Categories";
+import FeaturedRow from "./components/FeaturedRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -68,7 +69,29 @@ const HomeScreen = () => {
       >
         {/* Categories */}
         <Categories />
+
         {/* Featured Rows */}
+        <FeaturedRow
+          id="123"
+          title="Featured Rows"
+          description="Paid placements from our partners"
+        />
+
+        {/* Tasty Discounts */}
+        <FeaturedRow
+          id="1234"
+          title="Tasty Discounts"
+          description="Everyone's been enjoying these juicy discounts!"
+          featuredCategory="discounts"
+        />
+
+        {/* Offers near you */}
+        <FeaturedRow
+          id="12345"
+          title="Offers near you!"
+          description="Why not support local restaurants tonight!"
+          featuredCategory="offers"
+        />
       </ScrollView>
     </SafeAreaView>
   );
