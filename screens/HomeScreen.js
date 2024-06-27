@@ -22,7 +22,8 @@ import client from "../sanity";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-  const [featuredCategory, setFeaturedCategory] = useState([]);
+  // storing Featured Category
+  const [featured, setFeatured] = useState([]);
 
   // Modify Header Settings
   useLayoutEffect(() => {
@@ -46,11 +47,11 @@ const HomeScreen = () => {
       `
       )
       .then((data) => {
-        setFeaturedCategory(data);
+        setFeatured(data);
       });
   }, []);
 
-  console.log(featuredCategory, "featuredCategory");
+  console.log(featured, "featuredCategory");
 
   return (
     <SafeAreaView className="bg-white pt-5">
@@ -94,28 +95,16 @@ const HomeScreen = () => {
         {/* Categories */}
         <Categories />
 
-        {/* Featured Rows */}
-        <FeaturedRow
-          id="123"
-          title="Featured Rows"
-          description="Paid placements from our partners"
-        />
+        {/* Featured */}
 
-        {/* Tasty Discounts */}
-        <FeaturedRow
-          id="1234"
-          title="Tasty Discounts"
-          description="Everyone's been enjoying these juicy discounts!"
-          featuredCategory="discounts"
-        />
-
-        {/* Offers near you */}
-        <FeaturedRow
-          id="12345"
-          title="Offers near you!"
-          description="Why not support local restaurants tonight!"
-          featuredCategory="offers"
-        />
+        {featured?.map((category) => (
+          <FeaturedRow
+            key={category._id}
+            id={category._id}
+            title={category.name}
+            description={category.short_description}
+          />
+        ))}
       </ScrollView>
     </SafeAreaView>
   );
