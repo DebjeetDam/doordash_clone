@@ -7,7 +7,7 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   ChevronDownIcon,
@@ -17,9 +17,12 @@ import {
 } from "react-native-heroicons/outline";
 import Categories from "./components/Categories";
 import FeaturedRow from "./components/FeaturedRow";
+import { useEffect } from "react";
+import client from "../sanity";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const [featuredCategory, setFeaturedCategory] = useState([]);
 
   // Modify Header Settings
   useLayoutEffect(() => {
@@ -27,6 +30,27 @@ const HomeScreen = () => {
       headerShown: false,
     });
   }, []);
+
+  // Fetching data
+  useEffect(() => {
+    client
+      .fetch(
+        `
+      *[_type=="featured"]{
+        ...,
+        restaurants[] => {
+          ...,
+          dishes[]->
+        }
+      }
+      `
+      )
+      .then((data) => {
+        setFeaturedCategory(data);
+      });
+  }, []);
+
+  console.log(featuredCategory, "featuredCategory");
 
   return (
     <SafeAreaView className="bg-white pt-5">
