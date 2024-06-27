@@ -19,6 +19,7 @@ const FeaturedRow = ({ id, title, description }) => {
         className="pt-4"
       >
         {/* RestaurantCards... */}
+        <RestaurantCards id={123} imgUrl="" title="" />
       </ScrollView>
     </View>
   );
