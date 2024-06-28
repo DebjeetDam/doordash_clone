@@ -3,11 +3,10 @@ import {
   Text,
   SafeAreaView,
   Image,
-  ViewComponent,
   TextInput,
   ScrollView,
 } from "react-native";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   ChevronDownIcon,
@@ -17,7 +16,7 @@ import {
 } from "react-native-heroicons/outline";
 import Categories from "./components/Categories";
 import FeaturedRow from "./components/FeaturedRow";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import client from "../sanity";
 
 const HomeScreen = () => {
