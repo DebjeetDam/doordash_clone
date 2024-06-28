@@ -1,13 +1,31 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
-import { MapPinIcon, StarIcon } from "react-native-heroicons/outline";
+import { MapPinIcon } from "react-native-heroicons/outline";
+import { StarIcon } from "react-native-heroicons/solid";
+import { urlFor } from "../../sanity";
 
-const RestaurantCard = ({ id, imgUrl, title, rating, genre, address }) => {
+const RestaurantCard = ({
+  id,
+  imgUrl,
+  name,
+  rating,
+  genre,
+  address,
+  short_description,
+  dishes,
+  long,
+  lat,
+}) => {
+  console.log("RestaurantCard Render");
   return (
     <TouchableOpacity className="bg-white mr-3 shadow-sm">
-      <Image source={{ uri: imgUrl }} className="h-36 w-64 rounded-sm" />
-      <View>
-        <Text className="font-bold txt-lg pt-2">{title}</Text>
+      <Image
+        source={{ uri: urlFor(imgUrl).url() }}
+        className="h-36 w-64 rounded-sm"
+      />
+
+      <View className="px-3 pb-4">
+        <Text className="font-bold txt-lg pt-2">{name}</Text>
         <View className="flex-row items-center space-x-1">
           <StarIcon color={"green"} opacity={0.5} size={22} />
           <Text className="text-xs text-gray-500">
@@ -17,7 +35,9 @@ const RestaurantCard = ({ id, imgUrl, title, rating, genre, address }) => {
 
         <View className="flex-row items-center space-x-1">
           <MapPinIcon color="gray" opacity={0.4} size={22} />
-          <Text className="text-xs text-gray-500">Nearby . {address}</Text>
+          <Text className="text-xs text-gray-500">
+            Nearby . {address.split(",")[0]}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
