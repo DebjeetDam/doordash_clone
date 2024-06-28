@@ -6,7 +6,7 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   ChevronDownIcon,
@@ -14,9 +14,9 @@ import {
   AdjustmentsVerticalIcon,
   MagnifyingGlassIcon,
 } from "react-native-heroicons/outline";
+
 import Categories from "./components/Categories";
 import FeaturedRow from "./components/FeaturedRow";
-import { useState, useEffect } from "react";
 import client from "../sanity";
 
 const HomeScreen = () => {
