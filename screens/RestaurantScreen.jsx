@@ -5,11 +5,10 @@ import { useNavigation } from "@react-navigation/native";
 import { urlFor } from "../sanity";
 import {
   ArrowLeftIcon,
-  MapIcon,
-  MapPinIcon,
-  QuestionMarkCircleIcon,
   StarIcon,
+  MapPinIcon,
 } from "react-native-heroicons/solid";
+import { QuestionMarkCircleIcon } from "react-native-heroicons/outline";
 import { ChevronRightIcon } from "react-native-heroicons/outline";
 import DishRow from "./components/DishRow";
 
