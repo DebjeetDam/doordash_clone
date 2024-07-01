@@ -12,6 +12,7 @@
     "@expo/metro-runtime": "~3.2.1",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
+    "@reduxjs/toolkit": "^2.2.6",
     "@sanity/client": "^6.20.1",
     "@sanity/image-url": "^1.0.2",
     "@types/react": "~18.2.79",
@@ -26,6 +27,7 @@
     "react-native-screens": "^3.31.1",
     "react-native-svg": "15.2.0",
     "react-native-web": "~0.19.10",
+    "react-redux": "^9.1.2",
     "typescript": "~5.3.3"
   },
   "devDependencies": {
